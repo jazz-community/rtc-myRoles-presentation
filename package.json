@@ -1,0 +1,23 @@
+{
+  "name": "com.siemens.bt.jazz.workitem.roles",
+  "version": "1.0.1",
+  "description": "The role presentation shows the roles of user depending on filed against, including inherited ones",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.js --mode production"
+  },
+  "main": "resources/ui/Presentation.js",
+  "keywords": [
+    "rtc",
+    "jazz",
+    "role"
+  ],
+  "author": "Alexandra De Groof, Siemens",
+  "license": "MIT",
+  "dependencies": {
+    "jazz-update-site-webpack-plugin": "^0.4.1",
+    "webpack": "^4.17.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  }
+}

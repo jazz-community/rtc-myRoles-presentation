@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- 6
+script:
+- npm install
+- npm run build
+deploy:
+  provider: releases
+  api_key:
+    secure: HXw5nkH6S0EGyaPzxITg1rgA93+F/uxIbfDAKaDqoBW8c+qyXS7d7zIe0l7/3WVzsdp5586UCC3FA5VTxOQ6DzV6G4REMJugTTVfgDAlWO7NKAPnE2fEzOyIZAETvPr7rIWOmbEWQzYXnCjZ/KHuaJh3C1WWAkzq8/2KHI1Ty9VI5WtUW2JajPlz9h0bGaTsK1/4D2XmJIAncigeWK+SgzDLBzm2lnL6rhW+vRz5HlOKz70aeinf49S9W6PpdiIY2j75TsQCQJMrD9RTAFA0fM7zbhbGyMmeXi8e9MdP6EwC8QDIcVZASlktG9aYnnEP+l0hFRU6WHigVpbRbIQF7gX609HyopRE0R8IGkMf5hiWMj8q8LJWuTiAx3xt6ZrwshOD+ZdN+uQ0BqS8+5Fa60XiqwrXbHuvlkB4ocO+ZHZr9L2TucVET3f8V59wmIq1Qln1KOCN0YlpVsW4loRFGbBcLt2j4j9CeLBVp9N7rDvwztqdPyMAFmNsPOGsA2LO6znK5Y/ZF+3CN5+C/tFrL0B8Z5CPqBSz6xZK3Og139x/Y9kLJwMJY9yyBxRifl78SnnRSNft6ho45mfvsn/eH8dL0znV+djZ+xSSXsYyVrYH0z1D/yQ10ttsBTZOSr+/XY8dpfL5B6ztKZuETTjvrHjuMgPap7sPococniUOYeY=
+  file: com.siemens.bt.jazz.rtc.workitem.roles*.zip
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: jazz-community/rtc-myRoles-presentation

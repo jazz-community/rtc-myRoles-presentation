@@ -1,0 +1,12 @@
+*.iml
+*.jazzignore
+*.log
+*.swp
+.project
+.idea/
+.vscode/
+/com.siemens.bt.jazz.rtc.workitem.roles*.zip
+deployment-properties.ini
+dist/
+jbe-build-wrapper.xml
+node_modules/
