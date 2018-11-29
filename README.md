@@ -1,12 +1,12 @@
-# Own Role Presentation for RTC
+[![travis-svg][travis-svg]][travis]
 
-This Work Item editor presentation displays the authenticated users roles, depending on "Field against".
-It is intended to help with missing permissions to save Work Item issues.
+# My Role Presentation for RTC
+
+This Work Item editor presentation shows the roles a user has in the context of the current Work Item. It is intended to help users in cases where missing permissions lead to issues while saving a Work Item.
 
 ![The Presentation](resources/images/presentation.PNG "User is teammember in Dev Project Area")
 
-When the page loads and each time the "Filed Against" changes the roles the logged-in user has in the category associated team or project are displayed.
-This includes inherited roles and essentially gives a clue if the user has necessary permissions to change the Workitem.
+On page load and with each *Filed Against* field change, the roles that the current user has (in the associated team or project area) are calculated and visualized. This includes inherited roles and essentially gives the user a clue if he has the necessary privileges to change the current Work Item.
 
 ## Setup
 
@@ -32,16 +32,16 @@ Deploy just like any other update site:
 4. Restart the server
 
 ### Configuration
-Go to "manage (this) Project Area" -> Work Items -> Editor Presentation and choose the Editor Presentation you want to add it to.
-In  a section of your choosing click the green plus to add it.
+In the administrative section of the project area, navigate to *Work Items -> Editor Presentation* and choose the Editor Presentation you want to add it to. In a section of your choice, click the green plus to add it.
 
 ![Add the Presentation 1](resources/images/EditorPresentation.PNG "User is teammember in Dev Project Area")
 
 In the popup choose "Non-Attribute-based Presentation", then "com.siemens.bt.jazz.rtc.workItemEditor.presentation.roles" as kind.
 Give it a Label, Description and ID.
 
-![Add the Presentation 2](resources/images/addPresentation.PNG "User is teammember in Dev Project Area")
+![Add the Presentation 2](resources/images/addPresentation.PNG "User is team member in Dev Project Area")
 
+After saving, the presentation is visible to all users. We recommend to repeat the above steps for all Editor Presentations to have a consistent appearance.
 
 # About this Plug-In
 ## Compatibility
@@ -55,3 +55,6 @@ For general contribution guidelines, please refer to [CONTRIBUTING.md](https://g
 ## Licensing
 Copyright (c) Siemens AG. All rights reserved.<br>
 Licensed under the [MIT](./LICENSE) License.
+
+[travis-svg]: https://travis-ci.org/jazz-community/rtc-myRoles-presentation.svg?branch=master
+[travis]: https://travis-ci.org/jazz-community/rtc-myRoles-presentation
