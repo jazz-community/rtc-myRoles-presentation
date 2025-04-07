@@ -1,136 +1,52 @@
-.expandButton {
-	margin: 6px;
-	z-index: 100;
-	background-color: #fbfbfb;
-	border: 1px solid #cacaca;
-	display: block;
-	position: relative;
-	width: 28px;
-	height: 28px;
-	line-height: 30px;
-	text-align: center;
-	font-size: 22px;
-	border-radius: 50%;
+.my-role-presentation.conflict {
+	color: red;
+	font-weight: bold;
+}
+
+.my-role-presentation a {
+	text-decoration: none;
+	color: #0F62FE;
 	cursor: pointer;
 }
 
-.expandButton:hover, .expandButton:active {
-	background-color: #eee;
-}
-
-.item {
-	display: flex;
-}
-
-.userImage {
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	border: 1px solid #cacaca;
-	background-color: #fbfbfb;
-}
-
-.item .image {
-	padding: 5px;
-	z-index: 100;
-	margin-top: -18px;
-	margin-bottom: 5px;
-}
-
-.item .image > div {
-	position: relative;
-	text-align: center;
-	font-size: 12px;
-	cursor: help;
-	z-index: 100;
-}
-
-.item .image > div::after {
-	content: '';
-	width: 8px;
-	height: 0;
-	border-bottom: 1px solid #cacaca;
-	position: absolute;
-	top: 41px;
-	left: 31px;
-}
-
-.item .image span {
-	display: block;
-	clear: both;
-	background-color:white;
-	color: black;
+.my-role-presentation .orange {
+	color: orange;
 	font-weight: bold;
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	text-align: center;
-	font-size: 8px;
-	border-radius: 50%;
-	border: 1px solid #cacaca;	
-	margin: 5px;
-	cursor: help;
 }
 
-.item .details {
-	width: calc(100% - 42px);
-	margin-right: 5px;
-	cursor: help;
+.my-role-presentation .reset {
+	float: right;
 }
 
-.item .details > div {
-	border: 1px solid #cacaca;
-	background: #fbfbfb;
-	border-radius: 4px;
-	margin-left:1px;
-	padding: 6px;
-	width: calc(100% - 13px);
-	margin-top: 5px;
+.my-role-presentation .sprite-image{
+	margin-bottom: -3px;
 }
 
-.item .details > div > span {
+.my-role-actions-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+.my-role-actions-container a:hover {
+	color: #043ea9;
+}
+
+.my-role-actions-container a {
+	display: grid;
+	grid-template-columns: 24px auto;
+	align-items: center;
+}
+
+.my-role-actions-container > a > img {
 	vertical-align: middle;
-	line-height: 16px;
-}
-
-.item .details::before {
-	content: '';
-	width: 0;
-	height: 100%;
-	border: 1px solid #cacaca;
-	position: absolute;
-	top: 0;
-	left: 20px;
-	z-index: 10;
-}
-
-.attrIcon, .attrIcon > img {
 	width: 16px;
-	height: 16px;
+	height: auto;
+	max-height: 16px;
 }
 
-.calIcon {
-	display: inline-block;
-
-}
-
-.delegatedHistoryEntry > img {
-	display: inline-block;
-}
-
-.delegatedHistoryEntry > p {
-	display: inline-block;
-	padding: 1px;
-	margin: 0;
-	color: black;
-	margin-left: 5px;
-}
-
-.delegatedHistoryEntry > table {
-	border-top: 1px solid #cacaca;
-}
-
-.delegatedHistoryEntry > table td {
-	padding: 3px 8px 0px 0px;
+.my-role-actions-container a:nth-child(2n) {
+	/*
+	text-align: right;
+	*/
 }
