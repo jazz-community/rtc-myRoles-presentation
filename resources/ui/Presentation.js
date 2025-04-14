@@ -144,7 +144,7 @@ define([
 				}
 
 				com.ibm.team.workitem.web.client.internal.WorkItemClient.getAttributes(srh1, appArgs);
-				com.ibm.team.workitem.web.process.client.internal.WorkItemConfigClient.setCurrentProjectArea(appArgs);
+				com.ibm.team.workitem.web.process.client.internal.WorkItemConfigClient.setCurrentProjectAreaEditor(appArgs);
 				com.ibm.team.workitem.web.process.client.internal.WorkItemConfigClient.getAttributeTypes(srh2, appArgs);
 
 				//**************************************************/
@@ -665,23 +665,9 @@ define([
 				onclick: this.startMailSearch.bind(this)
 			});
 
-			var externalLinkHref = "";
-			if (currentExternalLinkConfig && currentExternalLinkConfig.url) {
-				externalLinkHref = currentExternalLinkConfig.url;
-				try {
-					externalLinkHref = externalLinkHref.replaceAll("{processAreaId}", this.processAreaid);
-					externalLinkHref = externalLinkHref.replaceAll("{workItemId}", this.workingCopy.object.id);
-					externalLinkHref = externalLinkHref.replaceAll("{projectAreaId}", this.workingCopy.object.attributes.projectArea.id);
-					externalLinkHref = externalLinkHref.replaceAll("{teamAreaId}", this.workingCopy.object.attributes.teamArea ? this.workingCopy.object.attributes.teamArea.id : this.workingCopy.object.attributes.projectArea.id);
-				} catch (error) {
-					console.error("Error replacing placeholders in external link URL: ", error);
-				}
-			}
-
 			var externalLink = currentExternalLinkConfig ? domConstruct.create("a", {
 				innerHTML: "<img src='" + (currentExternalLinkConfig.icon || "../com.siemens.bt.jazz.rtc.workItemEditor.presentation.roles/images/external-link.svg") + "' alt='External Link'><span> " + currentExternalLinkConfig.description + "</span>",
-				href: externalLinkHref,
-				target: "_blank"
+				onclick: this.openExternalLink.bind(this),
 			}) : null;
 
 			var resetLink = domConstruct.create("a", {
@@ -813,6 +799,29 @@ define([
 
 			});
 
+		},
+
+		openExternalLink: function () {
+			var currentExternalLinkConfig = this.findValidExternalLinkConfiguration(this.externalLink);
+
+			if (!currentExternalLinkConfig) {
+				return; //no valid config found, do nothing
+			}
+
+			if (currentExternalLinkConfig && currentExternalLinkConfig.url) {
+				var externalLinkHref = currentExternalLinkConfig.url;
+				try {
+					externalLinkHref = externalLinkHref.replaceAll("{processAreaId}", this.processAreaid);
+					externalLinkHref = externalLinkHref.replaceAll("{workItemId}", this.workingCopy.object.id);
+					externalLinkHref = externalLinkHref.replaceAll("{projectAreaId}", this.workingCopy.object.attributes.projectArea.id);
+					externalLinkHref = externalLinkHref.replaceAll("{teamAreaId}", this.workingCopy.object.attributes.teamArea ? this.workingCopy.object.attributes.teamArea.id : this.workingCopy.object.attributes.projectArea.id);
+
+					window.open(externalLinkHref, "_blank");
+				} catch (error) {
+					console.error("Error replacing placeholders in external link URL: ", error);
+					return;
+				}
+			}
 		},
 
 		startMailSearch: function () {

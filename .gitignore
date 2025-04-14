@@ -10,3 +10,5 @@ deployment-properties.ini
 dist/
 jbe-build-wrapper.xml
 node_modules/
+bin/
+/bin/
